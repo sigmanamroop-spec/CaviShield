@@ -1,0 +1,78 @@
+/* assets/styles.css */
+:root{
+  --navy:#071739; /* deep navy */
+  --teal:#0ec5a9; /* cyan/teal accent */
+  --accent:#2bd7d1;
+  --card:#ffffff;
+  --muted:#6b7b86;
+  --success:#22c55e;
+  --warn:#f59e0b;
+  --bg:#f4f7fb;
+  --max-width:1100px;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial;smooth-font:antialiased;margin:0;background:var(--bg);color:#052034}
+.container{max-width:var(--max-width);margin:0 auto;padding:0 16px}
+.site-header{background:var(--navy);color:white;padding:12px 0;position:sticky;top:0;z-index:20}
+.header-row{display:flex;align-items:center;justify-content:space-between}
+.icon-btn{background:transparent;border:none;color:inherit;font-size:20px;padding:8px;border-radius:8px}
+.app-title{font-size:16px;font-weight:700;margin:0}
+.header-actions{display:flex;align-items:center;gap:8px}
+.app-shell{display:flex;gap:16px;padding:18px 16px}
+.sidebar{width:200px}
+.side-nav{display:flex;flex-direction:column;gap:8px;padding-top:8px}
+.side-nav .nav-item{display:block;padding:10px 12px;border-radius:8px;color:#0a1630;text-decoration:none;background:transparent}
+.side-nav .nav-item.active{background:#e7f7f5;color:var(--navy);font-weight:600}
+.content{flex:1}
+.card{background:var(--card);border-radius:12px;padding:14px;margin-bottom:16px;box-shadow:0 6px 18px rgba(9,18,28,0.06);border:1px solid rgba(10,20,30,0.04)}
+.card-header h2,h3{margin:0 0 6px 0}
+.muted{color:var(--muted);font-size:13px}
+.dashboard-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;align-items:start}
+.cleanliness-card{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px}
+.gauge-svg{width:160px;height:160px}
+.gauge-bg{fill:none;stroke:#eef4f6;stroke-width:12}
+.gauge-progress{fill:none;stroke-width:12;stroke-dasharray:314;stroke-dashoffset:0;transform-origin:50% 50%;transform:rotate(-90deg)}
+.gauge-text{font-size:22px;fill:#052034;font-weight:700}
+.eco-card{display:flex;flex-direction:column;justify-content:space-between;padding:16px;position:relative}
+.eco-badge{position:absolute;top:12px;right:12px;background:#dff9f6;color:var(--teal);padding:6px 8px;border-radius:6px;font-weight:700;font-size:12px}
+.eco-content{display:flex;align-items:center;gap:12px}
+.eco-content .icon{font-size:28px}
+.metric{font-size:20px;font-weight:700}
+.status-card{text-align:center;padding:20px}
+.status-badge{display:inline-block;padding:10px 14px;border-radius:999px;font-weight:700}
+.status-badge.success{background:#eaffef;color:var(--success)}
+.conveyor-card .schematic{padding-top:10px}
+.conveyor-svg{width:100%;height:160px}
+.mobile-section h3{margin:16px 0}
+.log-list ul{list-style:none;padding:0;margin:0 0 12px 0}
+.log-list li{display:flex;gap:8px;align-items:center;padding:8px 0;border-bottom:1px dashed #eef4f6}
+.haccp{display:flex;align-items:center;gap:12px;justify-content:space-between}
+.cert{background:#052034;color:white;padding:8px 12px;border-radius:6px;font-weight:700}
+.audit{font-size:14px}
+.btn{background:var(--navy);color:white;padding:10px 14px;border-radius:8px;border:none;cursor:pointer}
+.btn.ghost{background:transparent;border:1px solid rgba(7,23,57,0.06);color:var(--navy)}
+.diagnostics-card .transducers{list-style:none;padding:0;margin:8px 0}
+.transducers li{display:flex;justify-content:space-between;align-items:center;padding:8px 0}
+.status-dot{width:12px;height:12px;border-radius:50%;display:inline-block}
+.status-dot.green{background:var(--success)}
+.status-dot.orange{background:var(--warn)}
+.bluetooth-card .bt-banner{background:#fff5e6;border-left:4px solid #ffcc66;padding:10px;border-radius:6px;margin-bottom:12px}
+.bt-banner.connected{background:#e8fff4;border-left-color:var(--success)}
+.device-scanner ul{list-style:none;padding:0;margin:0}
+.device-scanner li{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid #eef4f6}
+.bottom-nav{position:fixed;left:0;right:0;bottom:0;display:flex;justify-content:space-around;align-items:center;padding:8px 12px;background:white;border-top:1px solid #eef4f6}
+.bn-item{display:flex;flex-direction:column;align-items:center;color:#475569;text-decoration:none;font-size:12px}
+.bn-item.active{color:var(--navy);font-weight:700}
+.site-footer{padding:18px 0;text-align:center;color:var(--muted)}
+/* Responsive */
+@media (max-width:900px){
+  .sidebar{display:none}
+  .dashboard-grid{grid-template-columns:1fr}
+  .app-shell{padding:12px}
+}
+@media (max-width:600px){
+  .container{padding:0 12px}
+  .gauge-svg{width:120px;height:120px}
+  .conveyor-svg{height:120px}
+}

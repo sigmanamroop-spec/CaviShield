@@ -3,68 +3,173 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>CaviShield — Secure by Design</title>
-  <meta name="description" content="CaviShield — project landing page">
+  <title>Smart Cavitation Connect — Dashboard</title>
+  <meta name="description" content="Smart Cavitation Connect — Industrial cavitation cleaning system remote dashboard">
   <link rel="stylesheet" href="/assets/styles.css">
 </head>
 <body>
   <header class="site-header">
-    <div class="container">
-      <h1 class="logo">CaviShield</h1>
-      <nav class="nav">
-        <a href="#features">Features</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-        <a class="github" href="https://github.com/sigmanamroop-spec/CaviShield" target="_blank" rel="noopener">GitHub</a>
-      </nav>
-      <button id="menu-toggle" class="menu-toggle" aria-label="Toggle menu">☰</button>
+    <div class="container header-row">
+      <button id="menu-toggle" class="icon-btn" aria-label="Open menu">☰</button>
+      <h1 class="app-title">Smart Cavitation Connect</h1>
+      <div class="header-actions">
+        <button id="notif-btn" class="icon-btn" aria-label="Notifications">🔔</button>
+      </div>
     </div>
   </header>
 
-  <main>
-    <section class="hero">
-      <div class="container">
-        <h2>Protect your system with confidence</h2>
-        <p class="lead">CaviShield is a placeholder project. Replace this text with a short description of what CaviShield does.</p>
-        <p>
-          <a class="btn" href="#features">Explore Features</a>
-          <a class="btn ghost" href="https://github.com/sigmanamroop-spec/CaviShield" target="_blank" rel="noopener">View on GitHub</a>
-        </p>
+  <main class="app-shell container">
+    <aside class="sidebar" id="sidebar">
+      <nav class="side-nav">
+        <a class="nav-item active" href="#home">Home</a>
+        <a class="nav-item" href="#diagnostics">Diagnostics</a>
+        <a class="nav-item" href="#logs">Compliance & Logs</a>
+        <a class="nav-item" href="#bluetooth">Bluetooth</a>
+        <a class="nav-item" href="#settings">Settings</a>
+      </nav>
+    </aside>
+
+    <section class="content" id="home">
+      <!-- MAIN DASHBOARD HOME (Tablet layout primary) -->
+      <div class="dashboard-grid">
+        <div class="card cleanliness-card">
+          <div class="card-header">
+            <h2>Cleanliness Index</h2>
+            <span class="muted">Realtime sanitization quality</span>
+          </div>
+          <div class="gauge" data-value="92">
+            <svg viewBox="0 0 120 120" class="gauge-svg">
+              <defs>
+                <linearGradient id="grad" x1="0%" x2="100%">
+                  <stop offset="0%" stop-color="#2bd7d1"/>
+                  <stop offset="100%" stop-color="#0ec5a9"/>
+                </linearGradient>
+              </defs>
+              <circle class="gauge-bg" cx="60" cy="60" r="50"></circle>
+              <circle class="gauge-progress" cx="60" cy="60" r="50" stroke="url(#grad)" stroke-linecap="round"></circle>
+              <text x="50%" y="50%" class="gauge-text" text-anchor="middle" dominant-baseline="central">92%</text>
+            </svg>
+          </div>
+        </div>
+
+        <div class="card eco-card">
+          <div class="eco-badge">ECO-DASH</div>
+          <div class="eco-content">
+            <div class="icon">💧</div>
+            <div class="meta">
+              <div class="metric">350 L TODAY</div>
+              <div class="muted">Water Saved</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card status-card">
+          <div class="status-badge success">ALL OPERATIONAL ✅</div>
+          <div class="muted">System Status</div>
+        </div>
+
+        <div class="card conveyor-card">
+          <div class="card-header">
+            <h3>Conveyor Belt — Live Schematic</h3>
+            <span class="muted">Active cleaning zones and nozzle statuses</span>
+          </div>
+          <div class="schematic">
+            <!-- Simple stylized isometric conveyor SVG -->
+            <svg viewBox="0 0 800 300" class="conveyor-svg" preserveAspectRatio="xMidYMid meet">
+              <rect x="0" y="80" width="800" height="140" rx="10" fill="#f6f9fb" stroke="#e6eef2"/>
+              <!-- conveyor rollers -->
+              <g class="rollers">
+                <rect x="40" y="140" width="720" height="10" fill="#b8d6df"/>
+              </g>
+
+              <!-- Active Cleaning Zone -->
+              <rect x="220" y="95" width="360" height="110" rx="8" fill="#eaffef" stroke="#bff5c6"/>
+              <text x="400" y="125" text-anchor="middle" fill="#0a7a3d" font-weight="600">Active Cleaning Zone</text>
+
+              <!-- Nozzles -->
+              <g class="nozzles">
+                <circle cx="300" cy="170" r="8" fill="#22c55e"/>
+                <circle cx="360" cy="170" r="8" fill="#22c55e"/>
+                <circle cx="420" cy="170" r="8" fill="#22c55e"/>
+                <circle cx="480" cy="170" r="8" fill="#22c55e"/>
+                <circle cx="540" cy="170" r="8" fill="#22c55e"/>
+              </g>
+            </svg>
+          </div>
+        </div>
       </div>
+
+      <!-- MOBILE: Compliance & Logs preview -->
+      <section id="logs" class="mobile-section">
+        <h3>COMPLIANCE &amp; LOGS</h3>
+        <div class="card log-list">
+          <ul id="log-items">
+            <li><span class="time">10:15 AM</span> <span class="label">CYCLE:</span> <span class="status pass">PASS ✅</span></li>
+            <li><span class="time">07:42 AM</span> <span class="label">CYCLE:</span> <span class="status pass">PASS ✅</span></li>
+            <li><span class="time">Yesterday</span> <span class="label">CYCLE:</span> <span class="status fail">WARN ⚠️</span></li>
+          </ul>
+          <div class="haccp">
+            <div class="cert">HACCP</div>
+            <div class="audit">Audit Score: <strong>100%</strong></div>
+            <button id="download-logs" class="btn">DOWNLOAD</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- DIAGNOSTICS -->
+      <section id="diagnostics" class="mobile-section">
+        <h3>DIAGNOSTICS</h3>
+        <div class="card diagnostics-card">
+          <h4>Maintenance &amp; Health</h4>
+          <ul class="transducers">
+            <li>TRANSDUCER #1 — FREQUENCY: <strong>OPTIMAL</strong> <span class="status-dot green"></span></li>
+            <li>TRANSDUCER #2 — FREQUENCY: <strong>OPTIMAL</strong> <span class="status-dot green"></span></li>
+            <li>TRANSDUCER #3 — FREQUENCY: <strong>ADJUST</strong> <span class="status-dot orange"></span></li>
+          </ul>
+
+          <div class="cleanup-opt">
+            <h4>Cleaning Optimization</h4>
+            <p class="muted">Advanced efficiency settings for targeted zones</p>
+            <button class="btn ghost">Advanced Settings</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- BLUETOOTH -->
+      <section id="bluetooth" class="mobile-section">
+        <h3>Bluetooth Settings</h3>
+        <div class="card bluetooth-card">
+          <div id="bt-banner" class="bt-banner">Searching for Devices...</div>
+
+          <div class="device-scanner">
+            <ul id="bt-devices">
+              <!-- dynamically populated -->
+            </ul>
+          </div>
+
+          <div class="bt-controls">
+            <label class="sync-toggle">Data Sync
+              <input type="checkbox" id="sync-toggle">
+              <span class="switch"></span>
+            </label>
+          </div>
+        </div>
+      </section>
+
     </section>
 
-    <section id="features" class="features container">
-      <h3>Key Features</h3>
-      <div class="grid">
-        <article>
-          <h4>Secure by default</h4>
-          <p>Simple, sensible defaults to reduce configuration mistakes.</p>
-        </article>
-        <article>
-          <h4>Lightweight</h4>
-          <p>Small footprint and minimal dependencies for easy deployment.</p>
-        </article>
-        <article>
-          <h4>Audit-ready</h4>
-          <p>Designed to be easy to inspect and test.</p>
-        </article>
-      </div>
-    </section>
-
-    <section id="about" class="container about">
-      <h3>About</h3>
-      <p>This repository now contains a basic static website. You can edit these files to add real content, screenshots, documentation and download links.</p>
-    </section>
-
-    <section id="contact" class="container contact">
-      <h3>Contact</h3>
-      <p>Open an issue on the GitHub repository to request features or report bugs.</p>
-    </section>
   </main>
+
+  <nav class="bottom-nav">
+    <a href="#home" class="bn-item active">🏠<span>Home</span></a>
+    <a href="#settings" class="bn-item">⚙️<span>Settings</span></a>
+    <a href="#diagnostics" class="bn-item">🩺<span>Diagnostics</span></a>
+    <a href="#bluetooth" class="bn-item">🔵<span>Bluetooth</span></a>
+  </nav>
 
   <footer class="site-footer">
     <div class="container">
-      <p>&copy; <span id="year"></span> CaviShield — <a href="https://github.com/sigmanamroop-spec/CaviShield" target="_blank" rel="noopener">GitHub</a></p>
+      <p>&copy; <span id="year"></span> Smart Cavitation Connect — Built for industrial food processing.</p>
     </div>
   </footer>
 
